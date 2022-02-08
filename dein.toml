@@ -1,5 +1,8 @@
 
 [[plugins]]
+repo = 'jacoborus/tender.vim'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
@@ -59,9 +62,10 @@ endfunction
 repo = 'Shougo/defx.nvim'
 on_cmd = 'Defx'
 hook_add = '''
-nnoremap <silent> <Leader>ff :<C-u>Defx -listed -resume <CR>
+"nnoremap <silent> <Leader>ff :<C-u>Defx -listed -resume<CR>
+nnoremap <silent> <Leader>ff :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 nnoremap <silent> <Leader>fi :<C-u>Defx -split=vertical -winwidth=50 -direction=topleft<CR>
-nnoremap <silent> <Leader>fs :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+"nnoremap <silent> <Leader>fs :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
@@ -102,16 +106,11 @@ function! s:my_cr_function() abort
   endif
 endfunction
 " TABでの動作
-inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ deoplete#manual_complete()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Shift-TABでの動作
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" insertモードではC-qでdeoplateを綴じる
+inoremap <expr><C-q> pumvisible() ? deoplete#close_popup() : "\<C-q>"
 '''
 
 

@@ -28,6 +28,7 @@ set virtualedit+=block
 command! Ev edit $MYVIMRC
 
 
+
 " ----------------------------------------------------------
 " レジスタ
 " ----------------------------------------------------------
@@ -91,6 +92,7 @@ set autoindent
 set smartindent
 
 " softtabstopはTabキー押し下げ字の挿入される空白の量、0の場合はtabstopと同じ、BSにも影響する
+set noexpandtab
 set tabstop=4 shiftwidth=4 softtabstop=0
 
 
@@ -142,7 +144,7 @@ nnoremap <Up> gk
 " 0で^と0をトグルする
 nnoremap <expr> 0
 \  match(strpart(getline('.'), 0, col('.') - 1), '^\s\+$') >= 0 ? '0' : '^'
-nmap - $
+nmap ` $
 
 " insert modeでの移動
 imap <C-j> <Down>
