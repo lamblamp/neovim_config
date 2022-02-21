@@ -144,7 +144,7 @@ nnoremap <Up> gk
 " 0で^と0をトグルする
 nnoremap <expr> 0
 \  match(strpart(getline('.'), 0, col('.') - 1), '^\s\+$') >= 0 ? '0' : '^'
-nmap ` $
+nmap \ $
 
 " insert modeでの移動
 imap <C-j> <Down>
