@@ -33,7 +33,7 @@ hook_add = '''
 repo = 'Shougo/denite.nvim'
 hook_add = '''
 nnoremap <silent> <Leader>df :<C-u>Denite file/rec -split=floating<CR> " カレントディレクトのファイル
-nnoremap <silent> <Leader>dg :<C-u>Denite grep<CR>                     "
+nnoremap <silent> <Leader>dg :<C-u>Denite grep<CR>
 nnoremap <silent> <Leader>dt :<C-u>Denite filetype -split=floating<CR> " ファイルタイプを変更したいとき
 nnoremap <silent> <Leader>db :<C-u>Denite buffer -split=floating<CR>   " バッファ一覧
 nnoremap <silent> <Leader>dr :<C-u>Denite register -split=floating<CR> " レジスタ
