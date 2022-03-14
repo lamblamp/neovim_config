@@ -37,7 +37,7 @@ nnoremap <silent> <Leader>dg :<C-u>Denite grep<CR>
 nnoremap <silent> <Leader>dt :<C-u>Denite filetype -split=floating<CR> " ファイルタイプを変更したいとき
 nnoremap <silent> <Leader>db :<C-u>Denite buffer -split=floating<CR>   " バッファ一覧
 nnoremap <silent> <Leader>dr :<C-u>Denite register -split=floating<CR> " レジスタ
-nnoremap <silent> <Leader>dl :<C-u>Denite line<CR>                     " ？
+nnoremap <silent> <Leader>dl :<C-u>Denite line -split=floationg<CR>    " バッファ内検索
 
 " Deniteバッファでのキー設定
 autocmd FileType denite call s:denite_my_settings()
@@ -124,7 +124,7 @@ function! s:my_cr_function() abort
     let g:cache_completed = v:completed_item
     return deoplete#close_popup()
   else
-    return deoplete#close_popup() . "\<CR>"
+    return pumvisible() ? deoplete#close_popup() : "\<CR>"
   endif
 endfunction
 " TABでの動作
