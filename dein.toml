@@ -91,7 +91,7 @@ depends = ['defx-git']
 on_cmd = 'Defx'
 hook_add = '''
 
-call defx#custom#option('_', {'columns': 'git:mark:indent:filename:type'})
+call defx#custom#option('_', {'columns': 'mark:git:indent:filename:type'})
 
 
 "nnoremap <silent> <Leader>ff :<C-u>Defx -listed -resume<CR>
