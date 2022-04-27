@@ -3,6 +3,9 @@
 repo = 'jacoborus/tender.vim'
 
 [[plugins]]
+repo = 'ulwlu/elly.vim'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
@@ -38,6 +41,7 @@ nnoremap <silent> <Leader>dt :<C-u>Denite filetype -split=floating<CR> " ファ�
 nnoremap <silent> <Leader>db :<C-u>Denite buffer -split=floating<CR>   " バッファ一覧
 nnoremap <silent> <Leader>dr :<C-u>Denite register -split=floating<CR> " レジスタ
 nnoremap <silent> <Leader>dl :<C-u>Denite line -split=floationg<CR>    " バッファ内検索
+nnoremap <silent> <Leader>dc :<C-u>Denite -resume<CR>                  " Deniteウィンドウの再表示
 
 " Deniteバッファでのキー設定
 autocmd FileType denite call s:denite_my_settings()
